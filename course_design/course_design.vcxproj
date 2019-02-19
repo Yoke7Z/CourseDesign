@@ -164,6 +164,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Edge.txt" />
+    <Text Include="Review.txt" />
     <Text Include="Vex.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

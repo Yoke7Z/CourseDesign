@@ -1,10 +1,7 @@
-// 入门提示: 
-//   1. 使用解决方案资源管理器窗口添加/管理文件
-//   2. 使用团队资源管理器窗口连接到源代码管理
-//   3. 使用输出窗口查看生成输出和其他消息
-//   4. 使用错误列表窗口查看错误
-//   5. 转到“项目”>“添加新项”以创建新的代码文件，或转到“项目”>“添加现有项”以将现有代码文件添加到项目
-//   6. 将来，若要再次打开此项目，请转到“文件”>“打开”>“项目”并选择 .sln 文件
+/*
+所有中文注释都是写完逻辑之后整理时补充的。
+英文注释写于课设过程中，避免编码出现问题我要改好久。
+*/
 
 #ifndef PCH_H
 #define PCH_H
@@ -14,27 +11,25 @@
 #include "fstream"
 #include "vector"
 #include "string"
-#include "algorithm"
 #include "windows.h"
-#include "cstdlib"
+//#include "cstdlib"
 using namespace std;
 
 //class Vex : include all informations of a attraction
 class Vex
 {
 public:
-	int index;
-	string name;
-	string info;
+	int index;	//	景点编号
+	string name;	//	景点名称
+	string info;	//	景点简介
 	Vex(int _index, string _name, string _info)
 	{
+		//	图个方便构建对象
 		index = _index;
 		name = _name;
 		info = _info;
 	}
 };
-
-
 
 //method one : initialize all the attractions and adjacency matrix
 vector<int>* graph_initialization(vector<Vex>& vex, vector<int>* graph,

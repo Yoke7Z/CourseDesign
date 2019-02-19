@@ -3,12 +3,14 @@
 vector<int>* graph_initialization(vector<Vex>& vex, vector<int>* graph, 
 	const string& vex_file_name, const string& edge_file_name)
 {
+	//	数据类型有点奇怪，不要问为什么，问就是当时没想好瞎写的
+
 	//open the two files of vex & edge
 	ifstream inv(vex_file_name);
 	ifstream ine(edge_file_name);
 
 	//declare the variable
-	int NumOfVex;
+	int NumOfVex;	//景点总数
 	int index;
 	string name;
 	string info;
@@ -84,10 +86,10 @@ void DFS(vector<Vex> vex, vector<int>* graph,
 	bool* visited, int* path,
 	int& nowpoint, int& count,int& nowpath) 
 {
-	visited[nowpoint] = true;
-	path[count++] = nowpoint;
+	visited[nowpoint] = true;	//打标记
+	path[count++] = nowpoint;	//记录路径
 
-	if (vex.size() == count)
+	if (vex.size() == count)	//special judge
 	{
 		cout << "第 " << nowpath << " 条游览路线如下：" <<endl;
 		nowpath++;
@@ -109,6 +111,7 @@ void DFS(vector<Vex> vex, vector<int>* graph,
 				DFS(vex, graph, visited, path, k, count, nowpath);
 		}
 	}
+
 	visited[nowpoint] = false;
 	count--;
 }
@@ -133,8 +136,9 @@ void graph_shortest_path(vector<Vex> vex, vector<int>* graph)
 		dis[i] = graph[sp][i];
 		visit[i] = false;
 	}
-	dis[1] = 0;
-	visit[1] = 1;
+
+	dis[sp] = 0;
+	visit[sp] = true;
 
 	for (int i = 0; i <NumOfVex ; ++i)
 	{
@@ -163,7 +167,7 @@ void graph_shortest_path(vector<Vex> vex, vector<int>* graph)
 	cout << "从 " << vex[sp].name << " 到 " << vex[ep].name << " 的最短路径为：" << endl;
 	int len = path_index.size();
 	int t = ep;
-	cout << vex[t].name << " <- ";
+	cout << vex[t].name << " <-> ";
 	while (path_index[t] != sp)
 	{
 		cout << vex[path_index[t]].name << " <-> ";
